@@ -5,6 +5,8 @@ import bandeau.Bandeau;
 import java.awt.Color;
 import java.awt.Font;
 
+import animation.*;
+
 public class ExempleDUtilisation {
 
     public static void main(String[] args) {
@@ -59,6 +61,16 @@ public class ExempleDUtilisation {
         bandeau1.setBackground(back);
         bandeau1.setMessage("Terminé");
         bandeau1.sleep(3000);
+
+        // Exemple de scénario
+        Scenario scenario = new Scenario();
+        scenario.ajouter(new Teletype("Bonjour le monde !", 150), 1);
+        scenario.ajouter(new Clignotant("Attention", 200, Color.RED, Color.WHITE), 10);
+        scenario.ajouter(new Rotate("Rotation", 36, 50), 2);
+
+        scenario.jouer(bandeau1);
+
+        bandeau1.sleep(2000);
         bandeau1.close();
         bandeau2.close();
     }
